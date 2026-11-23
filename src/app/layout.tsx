@@ -26,6 +26,8 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+const basePath = process.env.GITHUB_PAGES === "true" ? "/My_Portfolio" : "";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://saieeshkanakula.com"),
   title: {
@@ -62,11 +64,11 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: `${basePath}/favicon.ico`, sizes: "32x32", type: "image/x-icon" },
+      { url: `${basePath}/favicon.svg`, type: "image/svg+xml" },
     ],
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    shortcut: `${basePath}/favicon.ico`,
+    apple: `${basePath}/apple-touch-icon.png`,
   },
 };
 
