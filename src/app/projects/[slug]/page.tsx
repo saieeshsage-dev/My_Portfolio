@@ -225,7 +225,7 @@ export default async function CaseStudyPage({
                   <figure key={m.src}>
                     <div className="media-frame border border-line">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={m.src} alt={m.alt} loading="lazy" />
+                      <img src={`${process.env.GITHUB_PAGES === "true" ? "/My_Portfolio" : ""}${m.src}`} alt={m.alt} loading="lazy" />
                     </div>
                     {m.caption ? (
                       <figcaption className="mt-3 border-t border-line pt-3">

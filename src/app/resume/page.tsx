@@ -70,7 +70,7 @@ export default function ResumePage() {
       </Reveal>
 
       <div className="mt-16">
-        <ResumeView />
+        <ResumeView basePath={process.env.GITHUB_PAGES === "true" ? "/My_Portfolio" : ""} />
       </div>
 
       <Reveal className="mt-16 border-t border-line pt-6">

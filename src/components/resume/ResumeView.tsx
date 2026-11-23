@@ -28,7 +28,7 @@ function Chevron({ open }: { open: boolean }) {
   );
 }
 
-export function ResumeView() {
+export function ResumeView({ basePath = "" }: { basePath?: string }) {
   const [open, setOpen] = useState<Set<number>>(new Set([0]));
 
   const toggle = (i: number) => {
@@ -54,7 +54,7 @@ export function ResumeView() {
           >
             Print / Save as PDF
           </button>
-          <ArrowLink href={resumeMeta.pdf} external>
+          <ArrowLink href={`${basePath}${resumeMeta.pdf}`} external>
             Download PDF
           </ArrowLink>
         </div>
