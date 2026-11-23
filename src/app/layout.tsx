@@ -60,6 +60,14 @@ export const metadata: Metadata = {
       "AI agents, autonomous workflows and local-first intelligence platforms.",
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export const viewport: Viewport = {
