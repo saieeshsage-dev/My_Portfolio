@@ -56,7 +56,7 @@ export function SiteHeader() {
           </Link>
 
           <nav className="hidden items-center justify-center gap-5 md:flex lg:gap-7" aria-label="Primary">
-            {nav.map((item) => (
+            {nav.filter((item) => item.href !== "/contact").map((item) => (
               <Link prefetch={false}
                 key={item.href}
                 href={item.href}
@@ -75,12 +75,18 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="hidden xl:block">
+          <div className="hidden md:block">
             <Link prefetch={false}
               href="/contact"
-              className="group inline-flex items-center gap-2 border border-line-strong px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-colors hover:border-brass hover:text-brass"
+              aria-current={isActive("/contact") ? "page" : undefined}
+              className={`group inline-flex min-h-10 items-center gap-2 whitespace-nowrap border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors hover:border-brass hover:text-brass ${
+                isActive("/contact")
+                  ? "border-brass text-brass"
+                  : "border-line-strong text-paper"
+              }`}
             >
-              Start a conversation
+              <span className="xl:hidden">Let&rsquo;s talk</span>
+              <span className="hidden xl:inline">Start a conversation</span>
               <span
                 aria-hidden
                 className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1"

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { projects } from "@/content/projects";
+import { countWord, projects } from "@/content/projects";
 import { ProjectIndex } from "@/components/projects/ProjectIndex";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionLabel } from "@/components/ui/atoms";
@@ -16,7 +16,7 @@ export default function ProjectsPage() {
       <Reveal>
         <SectionLabel index="/">Project library</SectionLabel>
         <h1 className="mt-6 max-w-3xl u-display text-[clamp(2.6rem,6vw,5.2rem)]">
-          Twelve systems, <span className="italic text-brass">no theatre</span>.
+          {countWord(projects.length, true)} systems, <span className="italic text-brass">no theatre</span>.
         </h1>
         <p className="mt-8 max-w-xl u-body">
           Every project below was inspected against its source before it was written

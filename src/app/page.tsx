@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/content/site";
-import { featuredProjects } from "@/content/projects";
+import { featuredProjects, projects } from "@/content/projects";
 import { principles } from "@/content/expertise";
 import { HeroCanvas } from "@/components/home/HeroCanvas";
 import { HeroTitle } from "@/components/home/HeroTitle";
@@ -116,8 +116,8 @@ export default function HomePage() {
           <div className="grid divide-y divide-line md:grid-cols-3 md:divide-x md:divide-y-0">
             {[
               { k: "11+", v: "Years in product & marketing operations" },
-              { k: "6", v: "Featured systems, with architecture documented" },
-              { k: "12", v: "Projects published with honest status labels" },
+              { k: String(featuredProjects.length), v: "Featured systems, with architecture documented" },
+              { k: String(projects.length), v: "Projects published with honest status labels" },
             ].map((item) => (
               <Reveal key={item.k} className="px-1 py-8 md:px-8 md:py-10">
                 <p className="font-serif text-4xl text-paper md:text-5xl">{item.k}</p>

@@ -6,6 +6,16 @@ export const projects: Project[] = [...featured, ...selected];
 
 export const featuredProjects = projects.filter((p) => p.tier === "featured");
 
+export const selectedProjects = projects.filter((p) => p.tier !== "featured");
+
+const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"];
+
+/** Spell small counts as words ("twelve"), larger ones as digits. Keeps copy in sync as projects are added. */
+export function countWord(n: number, capitalize = false): string {
+  const w = WORDS[n] ?? String(n);
+  return capitalize ? w.charAt(0).toUpperCase() + w.slice(1) : w;
+}
+
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }

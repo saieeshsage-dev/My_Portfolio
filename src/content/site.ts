@@ -1,5 +1,6 @@
 export const site = {
   name: "Saieesh Kanakula",
+  url: "https://saieeshsage-dev.github.io/My_Portfolio/",
   firstName: "Saieesh",
   role: "AI Systems Architect & Product Builder",
   secondary: "Product & Marketing Operations Leader",
@@ -8,7 +9,7 @@ export const site = {
   email: "kanakula.saieesh@gmail.com",
   phone: "+91 78751 67499",
   linkedin: "https://www.linkedin.com/in/saieesh-kanakula-b6b3032b4",
-  github: null as string | null,
+  github: "https://github.com/saieeshsage-dev" as string | null,
   availability: "Open to conversations on AI systems, agentic operations and product architecture",
   headline: "I build intelligent systems.",
   statement:

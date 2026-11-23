@@ -30,7 +30,7 @@ const mono = JetBrains_Mono({
 const basePath = process.env.GITHUB_PAGES === "true" ? "/My_Portfolio" : "";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://saieeshkanakula.com"),
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.name} — AI Systems Architect & Product Builder`,
     template: `%s — ${site.name}`,
@@ -55,6 +55,7 @@ export const metadata: Metadata = {
     description:
       "AI agents, autonomous workflows and local-first intelligence platforms — designed, engineered and verified.",
     siteName: site.name,
+    url: site.url,
   },
   twitter: {
     card: "summary_large_image",

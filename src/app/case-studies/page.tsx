@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { featuredProjects } from "@/content/projects";
+import { countWord, featuredProjects, projects, selectedProjects } from "@/content/projects";
 import { Reveal } from "@/components/motion/Reveal";
 import { ArrowLink, SectionLabel, StatusPill } from "@/components/ui/atoms";
 import { SystemGlyph } from "@/components/visuals/SystemGlyph";
@@ -85,10 +85,11 @@ export default function CaseStudiesPage() {
 
       <Reveal className="mt-14 flex flex-wrap items-center justify-between gap-6">
         <p className="max-w-xl font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
-          Six featured studies. The library also contains six shorter selected projects,
-          each with the same honesty labels.
+          {countWord(featuredProjects.length, true)} featured studies. The library also
+          contains {countWord(selectedProjects.length)} shorter selected projects, each
+          with the same honesty labels.
         </p>
-        <ArrowLink href="/projects">All twelve projects</ArrowLink>
+        <ArrowLink href="/projects">All {countWord(projects.length)} projects</ArrowLink>
       </Reveal>
     </div>
   );
