@@ -93,7 +93,7 @@ export default function HomePage() {
               <div className="mt-8 flex flex-wrap items-center gap-6">
                 <Link prefetch={false}
                   href="/projects"
-                  className="group inline-flex items-center gap-3 border border-line-strong px-5 py-3 font-mono text-[10.5px] uppercase tracking-[0.18em] text-paper transition-colors hover:border-brass hover:text-brass"
+                  className="group inline-flex items-center gap-3 border border-line-strong px-5 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-colors hover:border-brass hover:text-brass"
                 >
                   View the work
                   <span
@@ -121,7 +121,7 @@ export default function HomePage() {
             ].map((item) => (
               <Reveal key={item.k} className="px-1 py-8 md:px-8 md:py-10">
                 <p className="font-serif text-4xl text-paper md:text-5xl">{item.k}</p>
-                <p className="mt-3 max-w-[22ch] font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
+                <p className="mt-3 max-w-[22ch] font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
                   {item.v}
                 </p>
               </Reveal>
@@ -148,7 +148,8 @@ export default function HomePage() {
       {/* ——— CAPABILITIES ——— */}
       <section className="shell pt-28 md:pt-36">
         <Reveal>
-          <h2 className="max-w-3xl u-display text-[clamp(1.9rem,3.6vw,3rem)]">
+          <SectionLabel index="02">Capabilities</SectionLabel>
+          <h2 className="mt-6 max-w-3xl u-display text-[clamp(1.9rem,3.6vw,3rem)]">
             Four kinds of work,{" "}
             <span className="italic text-brass">one operating model</span>.
           </h2>
@@ -165,7 +166,7 @@ export default function HomePage() {
                 className="group flex h-full flex-col justify-between gap-10 p-7 transition-colors hover:bg-ink-raised md:p-10"
               >
                 <div className="flex items-baseline justify-between">
-                  <span className="font-mono text-[10px] text-brass/70">{cap.index}</span>
+                  <span className="font-mono text-[11px] text-brass/70">{cap.index}</span>
                   <span
                     aria-hidden
                     className="font-mono text-xs text-paper-faint transition-all duration-500 group-hover:translate-x-1 group-hover:text-brass"
@@ -192,10 +193,7 @@ export default function HomePage() {
         <div className="shell py-20 md:py-28">
           <Reveal className="grid gap-8 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-4">
-              <div className="flex items-center gap-3">
-                <span aria-hidden className="h-px w-8 shrink-0 bg-brass/60" />
-                <p className="u-label whitespace-nowrap">The through-line</p>
-              </div>
+              <SectionLabel index="03">The through-line</SectionLabel>
             </div>
             <div className="md:col-span-8">
               <h2 className="max-w-3xl u-display text-[clamp(1.9rem,3.8vw,3.2rem)]">
@@ -207,7 +205,7 @@ export default function HomePage() {
           <div className="mt-14 grid gap-12 border-t border-line pt-12 md:grid-cols-3 md:gap-10">
             {principles.map((p, i) => (
               <Reveal key={p.number} delay={i * 0.08} className="flex flex-col">
-                <span className="font-mono text-[10px] tracking-[0.18em] text-brass/70">
+                <span className="font-mono text-[11px] tracking-[0.18em] text-brass/70">
                   {p.number}
                 </span>
                 <h3 className="mt-5 font-serif text-2xl leading-tight tracking-tight text-paper">
@@ -229,10 +227,7 @@ export default function HomePage() {
       <section className="shell pt-28 md:pt-36">
         <div className="grid gap-12 md:grid-cols-12">
           <Reveal className="md:col-span-4">
-            <div className="flex items-center gap-4">
-              <span className="u-label whitespace-nowrap">Toolchain</span>
-              <span aria-hidden className="h-px flex-1 bg-line" />
-            </div>
+            <SectionLabel index="04">Toolchain</SectionLabel>
             <h2 className="mt-6 u-display text-[clamp(1.8rem,3vw,2.6rem)]">
               Chosen for the constraint, not the trend.
             </h2>
@@ -297,12 +292,12 @@ export default function HomePage() {
                   key={row.t}
                   className="flex items-baseline gap-6 border-b border-line py-4"
                 >
-                  <span className="font-mono text-[10px] text-brass/70">{row.y}</span>
+                  <span className="font-mono text-[11px] text-brass/70">{row.y}</span>
                   <span className="text-sm text-paper-dim">{row.t}</span>
                 </li>
               ))}
             </ul>
-            <p className="mt-6 font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
+            <p className="mt-6 font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
               Asana Ambassador · Asana AI Studio certified · 11+ years
             </p>
           </div>

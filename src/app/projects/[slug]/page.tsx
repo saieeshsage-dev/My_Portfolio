@@ -45,7 +45,7 @@ function Section({
   return (
     <section id={id} className="scroll-mt-28 border-t border-line pt-10">
       <div className="flex gap-5 md:gap-8">
-        <span className="mt-2 font-mono text-[10px] tracking-[0.16em] text-brass/70">
+        <span className="mt-2 font-mono text-[11px] tracking-[0.16em] text-brass/70">
           {index}
         </span>
         <div className="min-w-0 flex-1">
@@ -86,12 +86,12 @@ export default async function CaseStudyPage({
             <Link
               prefetch={false}
               href="/projects"
-              className="font-mono text-[10px] uppercase tracking-[0.16em] text-paper-faint transition-colors hover:text-paper"
+              className="font-mono text-[11px] uppercase tracking-[0.16em] text-paper-faint transition-colors hover:text-paper"
             >
               ← All projects
             </Link>
             <span className="text-paper-faint">/</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-paper-faint">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-paper-faint">
               {project.category}
             </span>
           </div>
@@ -150,7 +150,7 @@ export default async function CaseStudyPage({
             <dl className="mt-10 grid grid-cols-2 gap-px border border-line bg-line sm:grid-cols-4">
               {project.proof.map((p) => (
                 <div key={p.label} className="bg-ink p-4">
-                  <dt className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper-faint">
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper-faint">
                     {p.label}
                   </dt>
                   <dd className="mt-2 font-serif text-xl text-paper">{p.value}</dd>
@@ -187,7 +187,7 @@ export default async function CaseStudyPage({
               {project.decisions.map((d, i) => (
                 <Reveal key={d.title} delay={i * 0.04}>
                   <div className="grid gap-3 md:grid-cols-12">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-brass md:col-span-2 md:pt-1">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brass md:col-span-2 md:pt-1">
                       D{String(i + 1).padStart(2, "0")}
                     </p>
                     <div className="md:col-span-10">
@@ -230,11 +230,11 @@ export default async function CaseStudyPage({
                     {m.caption ? (
                       <figcaption className="mt-3 border-t border-line pt-3">
                         <div className="flex items-baseline justify-between gap-3">
-                          <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-brass/80">
+                          <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-brass/80">
                             Fig. {String(i + 1).padStart(2, "0")}
                           </span>
                           {m.demoData ? (
-                            <span className="shrink-0 border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-paper-faint">
+                            <span className="shrink-0 border border-line px-2 py-0.5 font-mono text-[11px] uppercase tracking-[0.14em] text-paper-faint">
                               Demo data
                             </span>
                           ) : null}
@@ -302,7 +302,7 @@ export default async function CaseStudyPage({
               {project.challenges.map((c, i) => (
                 <Reveal key={c.title} delay={i * 0.04}>
                   <div className="border-l border-line pl-5">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper-faint">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper-faint">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <h3 className="mt-2 text-base font-medium text-paper">{c.title}</h3>
@@ -319,7 +319,7 @@ export default async function CaseStudyPage({
             <div className="border border-line bg-ink-raised/50 p-6">
               <div className="flex flex-wrap items-center gap-3">
                 <StatusPill status={project.status} />
-                <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper-faint">
+                <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper-faint">
                   Inspected {project.period}
                 </span>
               </div>
@@ -338,7 +338,7 @@ export default async function CaseStudyPage({
                 </li>
               ))}
             </ul>
-            <p className="mt-6 font-mono text-[10px] uppercase leading-relaxed tracking-[0.12em] text-paper-faint">
+            <p className="mt-6 font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-paper-faint">
               Roadmap items are intent, not commitments. Nothing above is presented as
               delivered.
             </p>

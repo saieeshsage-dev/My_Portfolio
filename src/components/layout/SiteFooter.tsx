@@ -76,10 +76,10 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-20 flex flex-col gap-4 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
-          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-paper-faint">
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-paper-faint">
             © {new Date().getFullYear()} {site.name} — {site.location}
           </p>
-          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-paper-faint">
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-paper-faint">
             Built as an engineered system, not a template
           </p>
         </div>

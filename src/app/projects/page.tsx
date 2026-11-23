@@ -32,7 +32,7 @@ export default function ProjectsPage() {
       </div>
 
       <Reveal className="mt-20 border-t border-line pt-8">
-        <p className="max-w-2xl font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
+        <p className="max-w-2xl font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
           Not shown: abandoned folders, empty repositories, and third-party
           open-source projects found on the same machine. Presenting someone
           else&rsquo;s code as my own would be the fastest way to lose the trust of

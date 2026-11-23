@@ -52,7 +52,7 @@ export function CaseStudyNav() {
                   : "text-paper-faint hover:text-paper-dim"
               }`}
             >
-              <span className="font-mono text-[9px] tabular-nums">
+              <span className="font-mono text-[11px] tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span

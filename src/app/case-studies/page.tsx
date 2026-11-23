@@ -32,7 +32,7 @@ export default function CaseStudiesPage() {
           <Reveal key={project.slug} delay={i * 0.04}>
             <article className="grid gap-6 border-b border-line py-10 md:grid-cols-12 md:gap-8">
               <div className="md:col-span-1">
-                <span className="font-mono text-[10px] tracking-[0.16em] text-paper-faint">
+                <span className="font-mono text-[11px] tracking-[0.16em] text-paper-faint">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
@@ -58,7 +58,7 @@ export default function CaseStudiesPage() {
                 </p>
                 <div className="mt-5 flex flex-wrap items-center gap-3">
                   <StatusPill status={project.status} />
-                  <span className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-paper-faint">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper-faint">
                     {project.period}
                   </span>
                 </div>
@@ -84,7 +84,7 @@ export default function CaseStudiesPage() {
       </div>
 
       <Reveal className="mt-14 flex flex-wrap items-center justify-between gap-6">
-        <p className="max-w-xl font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
+        <p className="max-w-xl font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
           Six featured studies. The library also contains six shorter selected projects,
           each with the same honesty labels.
         </p>

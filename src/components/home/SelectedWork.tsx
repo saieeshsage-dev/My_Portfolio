@@ -1,21 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { featuredProjects } from "@/content/projects";
 import { SystemGlyph } from "@/components/visuals/SystemGlyph";
 import { StatusPill } from "@/components/ui/atoms";
 
 export function SelectedWork() {
-  const reduced = useReducedMotion();
 
   return (
     <div className="border-t border-line">
       {featuredProjects.map((project, i) => (
         <motion.div
           key={project.slug}
-          initial={reduced ? undefined : { opacity: 0, y: 24 }}
-          whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.8, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
           className="group border-b border-line"
@@ -39,13 +38,13 @@ export function SelectedWork() {
               </p>
             </div>
 
-            <div className="col-span-6 md:col-span-2">
-              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper-faint">
+            <div className="col-span-10 col-start-3 md:col-span-2 md:col-start-auto">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper-faint">
                 {project.category}
               </p>
             </div>
 
-            <div className="col-span-6 md:col-span-2">
+            <div className="col-span-10 col-start-3 -mt-2 md:col-span-2 md:col-start-auto md:mt-0">
               <StatusPill status={project.status} />
             </div>
 

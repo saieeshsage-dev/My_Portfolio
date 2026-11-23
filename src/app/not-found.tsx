@@ -14,7 +14,7 @@ export default function NotFound() {
       <div className="mt-10">
         <Link prefetch={false}
           href="/projects"
-          className="inline-flex items-center gap-3 border border-line-strong px-5 py-3 font-mono text-[10.5px] uppercase tracking-[0.18em] text-paper transition-colors hover:border-brass hover:text-brass"
+          className="inline-flex items-center gap-3 border border-line-strong px-5 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-colors hover:border-brass hover:text-brass"
         >
           View projects →
         </Link>

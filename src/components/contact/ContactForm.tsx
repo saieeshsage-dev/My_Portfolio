@@ -73,7 +73,7 @@ export function ContactForm() {
           </select>
           <span
             aria-hidden
-            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 font-mono text-[10px] text-paper-faint"
+            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 font-mono text-[11px] text-paper-faint"
           >
             ▾
           </span>
@@ -97,7 +97,7 @@ export function ContactForm() {
       <div className="mt-6 flex flex-wrap items-center gap-5">
         <button
           type="submit"
-          className="group inline-flex items-center gap-3 border border-brass bg-brass px-5 py-3 font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink transition-opacity hover:opacity-90"
+          className="group inline-flex items-center gap-3 border border-brass bg-brass px-5 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ink transition-opacity hover:opacity-90"
         >
           Compose email
           <span
@@ -107,7 +107,7 @@ export function ContactForm() {
             →
           </span>
         </button>
-        <p className="max-w-xs font-mono text-[9.5px] uppercase leading-relaxed tracking-[0.12em] text-paper-faint">
+        <p className="max-w-xs font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-paper-faint">
           Opens your mail client. No form service, no tracking, nothing stored.
         </p>
       </div>
