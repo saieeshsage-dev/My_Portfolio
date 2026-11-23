@@ -180,6 +180,16 @@ CSS px.
 
 ---
 
+## Added project: Curio — AI Learning Universe (23 Nov 2026)
+
+- Assessed `D:\Dyad\AI Learning Universe` (own project, 8 commits, React 19 + Vite + Node API).
+- Scored 7.9/10 (TC 17, OI 14, PU 13, EA 12, IC 12, DV 8, BI 3) — Class A; added as a 7th featured system.
+- Copied 4 real screenshots (dashboard, discover, player, studio) into `public/media/curio-learning-universe/` with `demoData: true`.
+- Updated counts: proof strip 7 featured / 13 projects; case-studies index "Seven featured studies / All thirteen projects".
+- Verified locally (build clean, 22 static routes) and on GitHub Pages (Lighthouse 100/100/100).
+
+---
+
 ## Known open items
 
 1. **GitHub URL** — not supplied. `site.github` is `null` and every GitHub link is conditionally
