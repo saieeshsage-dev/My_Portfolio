@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import type { Project } from "@/lib/types";
 import { StatusPill } from "@/components/ui/atoms";
 import { SystemGlyph } from "@/components/visuals/SystemGlyph";
@@ -15,7 +15,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     >
       <div>
         <div className="flex items-start justify-between gap-4">
-          <span className="font-mono text-[10px] tracking-[0.16em] text-paper-faint">
+          <span className="font-mono text-[11px] tracking-[0.16em] text-paper-faint">
             {String(index + 1).padStart(2, "0")}
           </span>
           <StatusPill status={project.status} />
@@ -31,7 +31,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       <div className="mt-10">
         <div className="flex items-center justify-between border-t border-line pt-4">
-          <span className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-paper-faint">
+          <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper-faint">
             {project.category}
           </span>
           <SystemGlyph
@@ -45,7 +45,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {project.stack.slice(0, 4).map((s) => (
             <li
               key={s}
-              className="border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper-faint"
+              className="border border-line px-2 py-0.5 font-mono text-[11px] uppercase tracking-[0.1em] text-paper-faint"
             >
               {s}
             </li>
@@ -59,7 +59,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 export function ProjectIndex({ projects }: { projects: Project[] }) {
   const [category, setCategory] = useState<string>("All");
   const [query, setQuery] = useState("");
-  const reduced = useReducedMotion();
 
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(projects.map((p) => p.category)))],
@@ -92,7 +91,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
               id="project-category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full appearance-none border border-line bg-ink px-3 py-2.5 pr-9 font-mono text-[10px] uppercase tracking-[0.12em] text-paper transition-colors focus:border-brass focus:outline-none"
+              className="w-full appearance-none border border-line bg-ink px-3 py-2.5 pr-9 font-mono text-[11px] uppercase tracking-[0.12em] text-paper transition-colors focus:border-brass focus:outline-none"
             >
               {categories.map((c) => (
                 <option key={c} value={c}>
@@ -102,7 +101,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
             </select>
             <span
               aria-hidden
-              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 font-mono text-[10px] text-paper-faint"
+              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 font-mono text-[11px] text-paper-faint"
             >
               ⌄
             </span>
@@ -118,7 +117,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                 type="button"
                 onClick={() => setCategory(c)}
                 aria-pressed={active}
-                className={`border px-3 py-1.5 font-mono text-[9.5px] uppercase tracking-[0.12em] transition-colors ${
+                className={`border px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors ${
                   active
                     ? "border-brass bg-brass text-ink"
                     : "border-line text-paper-faint hover:border-line-strong hover:text-paper"
@@ -154,7 +153,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
       <div className="flex items-center justify-between border-b border-line py-3">
         <p
           aria-live="polite"
-          className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper-faint"
+          className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper-faint"
         >
           {filtered.length} {filtered.length === 1 ? "system" : "systems"}
         </p>
@@ -165,7 +164,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
               setQuery("");
               setCategory("All");
             }}
-            className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-brass transition-opacity hover:opacity-70"
+            className="font-mono text-[11px] uppercase tracking-[0.16em] text-brass transition-opacity hover:opacity-70"
           >
             Clear filters
           </button>
@@ -179,9 +178,9 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
               key={project.slug}
               layout
               className="h-full"
-              initial={reduced ? undefined : { opacity: 0, y: 16 }}
-              animate={reduced ? undefined : { opacity: 1, y: 0 }}
-              exit={reduced ? undefined : { opacity: 0, scale: 0.985 }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.985 }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
               <ProjectCard project={project} index={i} />
@@ -202,7 +201,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
               setQuery("");
               setCategory("All");
             }}
-            className="mt-6 font-mono text-[10px] uppercase tracking-[0.16em] text-brass underline underline-offset-4"
+            className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-brass underline underline-offset-4"
           >
             Reset filters
           </button>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import {
   certifications,
   competencies,
@@ -30,7 +30,6 @@ function Chevron({ open }: { open: boolean }) {
 
 export function ResumeView() {
   const [open, setOpen] = useState<Set<number>>(new Set([0]));
-  const reduced = useReducedMotion();
 
   const toggle = (i: number) => {
     setOpen((prev) => {
@@ -44,14 +43,14 @@ export function ResumeView() {
   return (
     <div>
       <div className="no-print flex flex-wrap items-center justify-between gap-4 border-y border-line py-4">
-        <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper-faint">
+        <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper-faint">
           {experience.length} organisations · {experience.reduce((n, e) => n + e.roles.length, 0)} roles
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <button
             type="button"
             onClick={() => window.print()}
-            className="border border-line px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-paper-dim transition-colors hover:border-brass hover:text-brass"
+            className="border border-line px-3 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-paper-dim transition-colors hover:border-brass hover:text-brass"
           >
             Print / Save as PDF
           </button>
@@ -84,11 +83,11 @@ export function ResumeView() {
                 <h3 className="font-serif text-[clamp(1.4rem,2.2vw,1.9rem)] tracking-tight text-paper">
                   {org.company}
                 </h3>
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper-faint">
+                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper-faint">
                   {org.period} · {org.span}
                 </p>
               </div>
-              <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.12em] text-paper-faint">
+              <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.12em] text-paper-faint">
                 {org.location}
               </p>
 
@@ -114,7 +113,7 @@ export function ResumeView() {
                           <span className="block text-sm font-medium text-paper">
                             {role.title}
                           </span>
-                          <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.12em] text-paper-faint">
+                          <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.12em] text-paper-faint">
                             {role.period}
                           </span>
                         </span>
@@ -126,9 +125,9 @@ export function ResumeView() {
                       <AnimatePresence initial={false}>
                         {isOpen ? (
                           <motion.div
-                            initial={reduced ? undefined : { height: 0, opacity: 0 }}
-                            animate={reduced ? undefined : { height: "auto", opacity: 1 }}
-                            exit={reduced ? undefined : { height: 0, opacity: 0 }}
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                             className="overflow-hidden"
                           >
@@ -181,7 +180,7 @@ export function ResumeView() {
             </li>
           ))}
         </ul>
-        <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.12em] text-paper-faint">
+        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.12em] text-paper-faint">
           Published on LinkedIn
         </p>
       </section>
@@ -239,7 +238,7 @@ export function ResumeView() {
           {languages.map((l) => (
             <span key={l.name} className="text-sm text-paper-dim">
               {l.name}{" "}
-              <span className="font-mono text-[10px] uppercase text-paper-faint">
+              <span className="font-mono text-[11px] uppercase text-paper-faint">
                 {l.level}
               </span>
             </span>

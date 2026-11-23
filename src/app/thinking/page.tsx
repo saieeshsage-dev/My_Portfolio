@@ -28,10 +28,10 @@ export default function ThinkingPage() {
         {essays.map((essay, i) => (
           <article key={essay.slug} id={essay.slug} className="grid gap-8 border-t border-line pt-10 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-3">
-              <p className="font-mono text-[10px] tracking-[0.16em] text-brass/70">
+              <p className="font-mono text-[11px] tracking-[0.16em] text-brass/70">
                 {String(i + 1).padStart(2, "0")}
               </p>
-              <p className="mt-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
+              <p className="mt-4 font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
                 Essay · {Math.max(2, Math.round(essay.body.join(" ").split(" ").length / 180))} min read
               </p>
             </div>

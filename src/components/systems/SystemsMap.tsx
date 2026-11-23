@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { disciplines } from "@/content/expertise";
 import { getProject } from "@/content/projects";
 
@@ -28,7 +28,6 @@ function layout() {
 export function SystemsMap() {
   const nodes = useMemo(layout, []);
   const [active, setActive] = useState(nodes[0].id);
-  const reduced = useReducedMotion();
   const activeNode = nodes.find((n) => n.id === active) ?? nodes[0];
 
   const crossEdges = useMemo(() => {
@@ -111,7 +110,7 @@ export function SystemsMap() {
 
           {/* centre */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-line bg-ink px-3 py-1.5 text-center">
-            <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-paper-faint">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper-faint">
               System
             </p>
             <p className="mt-0.5 font-serif text-sm text-paper-dim">Intelligence</p>
@@ -135,7 +134,7 @@ export function SystemsMap() {
                 onFocus={() => setActive(n.id)}
                 onClick={() => setActive(n.id)}
                 aria-pressed={isActive}
-                className={`absolute whitespace-nowrap py-1 font-mono text-[8.5px] uppercase tracking-[0.1em] transition-colors duration-300 md:text-[9.5px] ${
+                className={`absolute hidden whitespace-nowrap py-1 font-mono lg:block text-[11px] uppercase tracking-[0.1em] transition-colors duration-300 ${
                   isActive
                     ? "text-brass"
                     : "text-paper-faint hover:text-paper"
@@ -147,13 +146,34 @@ export function SystemsMap() {
             );
           })}
         </div>
+
+        <div className="mt-6 flex flex-wrap gap-2 lg:hidden" role="group" aria-label="Disciplines">
+          {nodes.map((n) => {
+            const isActive = n.id === active;
+            return (
+              <button
+                key={`chip-${n.id}`}
+                type="button"
+                onClick={() => setActive(n.id)}
+                aria-pressed={isActive}
+                className={`min-h-11 border px-3 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors ${
+                  isActive
+                    ? "border-brass/60 text-brass"
+                    : "border-line text-paper-dim hover:text-paper"
+                }`}
+              >
+                {n.name}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       <div className="lg:col-span-5">
         <motion.div
           key={activeNode.id}
-          initial={reduced ? undefined : { opacity: 0, y: 10 }}
-          animate={reduced ? undefined : { opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
           className="border border-line bg-ink-raised/40 p-6 md:p-8"
         >
@@ -182,7 +202,7 @@ export function SystemsMap() {
                     <span>{p.name}</span>
                     <span
                       aria-hidden
-                      className="font-mono text-[10px] opacity-40 transition-transform duration-300 group-hover:translate-x-0.5"
+                      className="font-mono text-[11px] opacity-40 transition-transform duration-300 group-hover:translate-x-0.5"
                     >
                       →
                     </span>

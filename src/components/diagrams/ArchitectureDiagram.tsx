@@ -18,7 +18,7 @@ export function ArchitectureDiagram({ project }: { project: Project }) {
             className="relative bg-ink p-6 md:p-8"
           >
             <div className="flex items-baseline justify-between">
-              <span className="font-mono text-[10px] tracking-[0.16em] text-brass/70">
+              <span className="font-mono text-[11px] tracking-[0.16em] text-brass/70">
                 L{String(i + 1).padStart(2, "0")}
               </span>
               <span

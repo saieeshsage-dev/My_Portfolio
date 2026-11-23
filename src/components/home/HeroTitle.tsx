@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -11,7 +11,6 @@ const lines = [
 ];
 
 export function HeroTitle() {
-  const reduced = useReducedMotion();
 
   return (
     <h1 className="u-display text-[clamp(3.1rem,min(9.4vw,13.5vh),9.6rem)] text-paper">
@@ -19,8 +18,8 @@ export function HeroTitle() {
         <span key={line.text} className="block overflow-hidden pb-[0.04em]">
           <motion.span
             className={`block ${line.italic ? "italic text-brass" : ""}`}
-            initial={reduced ? undefined : { y: "110%" }}
-            animate={reduced ? undefined : { y: "0%" }}
+            initial={{ y: "110%" }}
+            animate={{ y: "0%" }}
             transition={{ duration: 0.75, delay: 0.05 + i * 0.06, ease: EASE }}
           >
             {line.text}

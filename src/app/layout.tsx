@@ -3,6 +3,7 @@ import { Instrument_Serif, Inter_Tight, JetBrains_Mono } from "next/font/google"
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 import { site } from "@/content/site";
 
 const serif = Instrument_Serif({
@@ -29,7 +30,7 @@ const mono = JetBrains_Mono({
 const basePath = process.env.GITHUB_PAGES === "true" ? "/My_Portfolio" : "";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://saieeshkanakula.com"),
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.name} — AI Systems Architect & Product Builder`,
     template: `%s — ${site.name}`,
@@ -54,6 +55,7 @@ export const metadata: Metadata = {
     description:
       "AI agents, autonomous workflows and local-first intelligence platforms — designed, engineered and verified.",
     siteName: site.name,
+    url: site.url,
   },
   twitter: {
     card: "summary_large_image",
@@ -96,9 +98,11 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <SiteHeader />
-        <main id="main">{children}</main>
-        <SiteFooter />
+        <MotionProvider>
+          <SiteHeader />
+          <main id="main">{children}</main>
+          <SiteFooter />
+        </MotionProvider>
       </body>
     </html>
   );

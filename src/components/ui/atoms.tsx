@@ -4,7 +4,7 @@ import type { ProjectStatus } from "@/lib/types";
 
 export function Tag({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-paper-faint">
+    <span className="inline-flex items-center border border-line px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-paper-faint">
       {children}
     </span>
   );
@@ -20,7 +20,7 @@ export function StatusPill({ status }: { status: ProjectStatus }) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 whitespace-nowrap border px-2 py-1 font-mono text-[10px] uppercase tracking-[0.14em] ${tone}`}
+      className={`inline-flex items-center gap-1.5 whitespace-nowrap border px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] ${tone}`}
     >
       <span aria-hidden className="size-1 rounded-full bg-current" />
       {status}

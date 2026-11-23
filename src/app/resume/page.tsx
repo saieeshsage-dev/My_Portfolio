@@ -22,7 +22,7 @@ export default function ResumePage() {
             <h1 className="u-display text-[clamp(2.6rem,5.6vw,4.8rem)]">
               {site.name}
             </h1>
-            <p className="mt-4 max-w-xl font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.14em] text-brass/80">
+            <p className="mt-4 max-w-xl font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-brass/80">
               {resumeMeta.title}
             </p>
             <p className="mt-8 max-w-2xl u-body">{resumeMeta.summary}</p>
@@ -74,7 +74,7 @@ export default function ResumePage() {
       </div>
 
       <Reveal className="mt-16 border-t border-line pt-6">
-        <p className="max-w-2xl font-mono text-[9.5px] uppercase leading-relaxed tracking-[0.12em] text-paper-faint">
+        <p className="max-w-2xl font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-paper-faint">
           Everything on this page is taken directly from the source resume. No role,
           date, certification or achievement has been added or embellished.
         </p>

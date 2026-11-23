@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { projects } from "@/content/projects";
+import { countWord, projects } from "@/content/projects";
 import { ProjectIndex } from "@/components/projects/ProjectIndex";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionLabel } from "@/components/ui/atoms";
@@ -16,7 +16,7 @@ export default function ProjectsPage() {
       <Reveal>
         <SectionLabel index="/">Project library</SectionLabel>
         <h1 className="mt-6 max-w-3xl u-display text-[clamp(2.6rem,6vw,5.2rem)]">
-          Twelve systems, <span className="italic text-brass">no theatre</span>.
+          {countWord(projects.length, true)} systems, <span className="italic text-brass">no theatre</span>.
         </h1>
         <p className="mt-8 max-w-xl u-body">
           Every project below was inspected against its source before it was written
@@ -32,7 +32,7 @@ export default function ProjectsPage() {
       </div>
 
       <Reveal className="mt-20 border-t border-line pt-8">
-        <p className="max-w-2xl font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
+        <p className="max-w-2xl font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
           Not shown: abandoned folders, empty repositories, and third-party
           open-source projects found on the same machine. Presenting someone
           else&rsquo;s code as my own would be the fastest way to lose the trust of

@@ -50,18 +50,18 @@ export function SiteHeader() {
             <span className="font-mono text-[13px] tracking-[0.3em] text-paper">
               SK
             </span>
-            <span className="hidden whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.2em] text-paper-faint transition-colors group-hover:text-paper-dim lg:block">
+            <span className="hidden whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.2em] text-paper-faint transition-colors group-hover:text-paper-dim lg:block">
               {site.name}
             </span>
           </Link>
 
           <nav className="hidden items-center justify-center gap-5 md:flex lg:gap-7" aria-label="Primary">
-            {nav.map((item) => (
+            {nav.filter((item) => item.href !== "/contact").map((item) => (
               <Link prefetch={false}
                 key={item.href}
                 href={item.href}
                 aria-current={isActive(item.href) ? "page" : undefined}
-                className={`relative font-mono text-[10.5px] uppercase tracking-[0.18em] transition-colors ${
+                className={`relative py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
                   isActive(item.href)
                     ? "text-paper"
                     : "text-paper-faint hover:text-paper"
@@ -69,18 +69,24 @@ export function SiteHeader() {
               >
                 {item.label}
                 {isActive(item.href) ? (
-                  <span className="absolute -bottom-2 left-0 h-px w-full bg-brass" />
+                  <span aria-hidden className="absolute bottom-0 left-0 h-px w-full bg-brass" />
                 ) : null}
               </Link>
             ))}
           </nav>
 
-          <div className="hidden xl:block">
+          <div className="hidden md:block">
             <Link prefetch={false}
               href="/contact"
-              className="group inline-flex items-center gap-2 border border-line-strong px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-paper transition-colors hover:border-brass hover:text-brass"
+              aria-current={isActive("/contact") ? "page" : undefined}
+              className={`group inline-flex min-h-10 items-center gap-2 whitespace-nowrap border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors hover:border-brass hover:text-brass ${
+                isActive("/contact")
+                  ? "border-brass text-brass"
+                  : "border-line-strong text-paper"
+              }`}
             >
-              Start a conversation
+              <span className="xl:hidden">Let&rsquo;s talk</span>
+              <span className="hidden xl:inline">Start a conversation</span>
               <span
                 aria-hidden
                 className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1"
@@ -95,7 +101,7 @@ export function SiteHeader() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
-            className="md:hidden flex h-10 w-10 items-center justify-center justify-self-end"
+            className="-mr-2 flex h-11 w-11 items-center justify-center justify-self-end md:hidden"
           >
             <span className="relative block h-3 w-6">
               <span
@@ -144,7 +150,7 @@ export function SiteHeader() {
                       <span className="font-serif text-4xl tracking-tight">
                         {item.label}
                       </span>
-                      <span className="font-mono text-[10px] text-paper-faint">
+                      <span className="font-mono text-[11px] text-paper-faint">
                         0{i + 1}
                       </span>
                     </Link>
