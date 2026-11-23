@@ -168,6 +168,212 @@ export const featured: Project[] = [
   },
 
   {
+    slug: "curio-learning-universe",
+    name: "Curio — AI Learning Universe",
+    tier: "featured",
+    category: "AI-Powered Applications",
+    tagline:
+      "An adaptive, community-powered self-learning platform that turns study materials, notes and images into grade-tailored interactive courses.",
+    status: "Functional prototype",
+    period: "2026",
+    role: "Product definition, full-stack build, AI integration",
+    accent: "#8fa6a4",
+    summary:
+      "A K-12 learning universe: ingest a PDF, DOCX, text file or image and get a structured, grade-adapted course with slides, knowledge checks, curiosity challenges and an AI tutor — plus adaptive remediation, SM-2 flashcards, multi-course learning paths, a daily challenge and a gamified learner profile. Runs in the browser against a small Node API.",
+
+    problem:
+      "Study material is abundant and inert. A textbook chapter, a set of notes or a diagram gives a student nothing to interact with, nothing that adapts to their grade, and nothing that comes back to the concepts they got wrong. The tools that do generate practice tend to be generic quizzes with no memory of the learner.",
+    conception:
+      "I wanted to test whether a single multimodal model could be the spine of a learning product — ingesting a textbook chapter or a photo of a diagram and producing a course a Grade 5 student can actually work through, then tracking what they missed and re-teaching it from a different angle.",
+    vision:
+      "A private, no-sign-up learning universe where the learner's grade adapts the vocabulary, a missed question becomes a fresh lesson, and every completed course leaves behind a flashcard deck that returns right before forgetting. The learner's identity is a five-character code, not an account.",
+    solution:
+      "A React 19 + Vite single-page application over a small Node http server. The server is stateless: it exposes /api/status, /api/extract-text (PDF, DOCX, TXT, Markdown and image text extraction) and OpenRouter chat completions for course, path, tutor, quiz and flashcard generation. The client owns everything else — progress, scheduling, gamification — in localStorage keyed to a generated learner ID, and seeds a small community catalogue on first launch. When no API key or server is available, a deterministic content-aware generator produces structurally identical courses, so the product is usable offline and in demos.",
+
+    architecture: {
+      premise:
+        "The model is a content engine behind a typed contract; the client owns state, progress and scheduling. Generation is a function, not the product.",
+      layers: [
+        {
+          name: "Client",
+          detail:
+            "React 19 + Vite SPA with React Router 7, Tailwind and a typed service layer. Owns the learner profile, course progress, flashcard scheduling, XP, badges and streaks.",
+        },
+        {
+          name: "Content engine",
+          detail:
+            "OpenRouter chat completions (default nvidia/nemotron-3.5-super-vl:free) for course, path, tutor, quiz and flashcard generation, plus a deterministic content-aware fallback generator that mirrors the same schema.",
+        },
+        {
+          name: "Document pipeline",
+          detail:
+            "pdf-parse for PDF/DOCX/TXT/Markdown extraction on the server; images are passed through as base64 to the vision model. Text is normalised before generation.",
+        },
+        {
+          name: "Persistence",
+          detail:
+            "localStorage keyed to a 5-character learner ID, with a seeded community catalogue on first launch. No accounts, no database, no cloud sync.",
+        },
+        {
+          name: "Gamification",
+          detail:
+            "XP on lesson completion and quiz answers, milestone badges, daily streaks, a daily three-question challenge with bonus XP, and a confetti celebration on correct answers.",
+        },
+      ],
+      flow: [
+        "Ingest PDF, DOCX, text, Markdown or an image",
+        "Extract and normalise the source text",
+        "Generate a grade-adapted course (or fall back to the deterministic generator)",
+        "Learn through multi-slide lessons with key takeaways",
+        "Answer knowledge checks and curiosity challenges",
+        "Track misses and generate a smart review course",
+        "Build an SM-2 flashcard deck with Again / Got it / Easy grading",
+        "Earn XP, badges and streaks; play the daily challenge",
+      ],
+    },
+
+    stack: ["React", "TypeScript", "Vite", "Tailwind", "React Router", "Node.js", "OpenRouter", "pdf-parse"],
+    models: ["nvidia/nemotron-3.5-super-vl:free (default)", "Provider-agnostic via OpenRouter"],
+    features: [
+      {
+        title: "Multimodal course creation studio",
+        detail:
+          "Ingests PDF, DOCX, TXT, Markdown and images (PNG, JPG, WEBP) and generates a structured, grade-adapted course with slides, takeaways, analogies, quizzes, curiosity challenges and fun facts.",
+      },
+      {
+        title: "AI Learning Paths (Curio Pathfinder)",
+        detail:
+          "Describe a learning goal in one sentence and the AI designs a sequenced 3-6 course curriculum; each course is generated in full when unlocked.",
+      },
+      {
+        title: "Smart Review (adaptive remediation)",
+        detail:
+          "Tracks every missed quiz question, identifies weak concepts and generates a personalised review course that re-teaches each from a fresh angle with new questions.",
+      },
+      {
+        title: "SM-2 flashcards",
+        detail:
+          "Every enrolled course produces a flashcard deck; an SM-2-style scheduler brings cards back before forgetting, with Again / Got it / Easy grading, due counts and XP rewards.",
+      },
+      {
+        title: "Ask Curio (AI tutor)",
+        detail:
+          "A sidecar tutor that answers student questions about the current lesson in real time using the configured model.",
+      },
+      {
+        title: "Community library and discovery",
+        detail:
+          "Search and filter by subject, grade band (Elementary, Middle, High) and category, with one-click enrollment and progress tracking.",
+      },
+      {
+        title: "Gamification engine",
+        detail:
+          "XP on lesson completion and quiz answers, milestone badges, daily streak tracking and a daily three-question challenge with bonus XP.",
+      },
+      {
+        title: "Graded assessments, certificates and notebook",
+        detail:
+          "Graded assessment views, course completion certificates, a learner notebook and video-lesson support round out the learning loop.",
+      },
+    ],
+    decisions: [
+      {
+        title: "Deterministic fallback as a first-class path",
+        detail:
+          "Generation must never hard-fail. A content-aware deterministic generator mirrors the AI schema exactly, so the player cannot tell which path produced a course and the product stays usable offline and in demos.",
+      },
+      {
+        title: "The client owns state",
+        detail:
+          "Progress, scheduling and gamification live in localStorage under a learner ID. The server is a stateless generation and extraction service, which keeps deployment trivial and privacy by construction.",
+      },
+      {
+        title: "No accounts",
+        detail:
+          "A five-character uppercase ID plus a companion avatar replaces sign-up. The trade-off is no cloud sync and no cross-device continuity, which is recorded as a known gap rather than hidden.",
+      },
+      {
+        title: "One multimodal model for everything",
+        detail:
+          "A single vision-capable model handles text and image ingestion, course generation, tutoring, quiz and flashcard generation. One provider boundary, one failure mode, one prompt discipline to maintain.",
+      },
+      {
+        title: "Grade as a parameter, not a separate product",
+        detail:
+          "Vocabulary and depth are injected into the generation prompt per grade band rather than building twelve products. The cost is prompt engineering; the gain is one codebase.",
+      },
+    ],
+    challenges: [
+      {
+        title: "Grade-appropriate output from a single model",
+        detail:
+          "A single prompt must produce Grade 2 and Grade 10 vocabulary without a per-grade fine-tune. Solved with grade-injected system prompts and a sanitize-and-repair pass on the returned JSON.",
+      },
+      {
+        title: "Keeping the experience coherent when the API is absent",
+        detail:
+          "The fallback generator reproduces the exact course schema, so slides, quizzes, flashcards and paths render identically whether the content came from the model or from the deterministic generator.",
+      },
+      {
+        title: "Anonymous identity without losing progress",
+        detail:
+          "A generated five-character ID plus localStorage keeps progress private and portable on one device, at the cost of no recovery path if storage is cleared.",
+      },
+    ],
+    statusNote:
+      "Runs locally via Vite plus a small Node server. The OpenRouter key is optional: with it, courses, paths, tutor answers, quizzes and flashcards are generated live; without it, a deterministic content-aware generator produces structurally identical courses. Three community courses ship seeded. No test suite, no authentication, no cloud sync.",
+    roadmap: [
+      "Cloud sync and optional accounts",
+      "Production deployment with a real key-gated generation endpoint",
+      "Offline PWA with a service worker",
+      "Teacher and classroom mode with shared cohorts",
+    ],
+
+    proof: [
+      { label: "Commits", value: "8" },
+      { label: "Components", value: "15" },
+      { label: "Seeded courses", value: "3" },
+      { label: "Activity types", value: "6" },
+    ],
+    media: [
+      {
+        src: "/media/curio-learning-universe/dashboard.png",
+        alt: "Curio home dashboard showing a Grade 5 learner profile, XP, streak, the daily challenge and recommended courses",
+        caption:
+          "Home dashboard for a seeded Grade 5 learner: XP, streak, daily challenge and a recommended course. Profile generated locally on first launch.",
+        kind: "screenshot",
+        demoData: true,
+      },
+      {
+        src: "/media/curio-learning-universe/discover.png",
+        alt: "Curio community library with search, subject and grade-band filters and course cards",
+        caption:
+          "Community library: search and filter by subject and grade band, with one-click enrollment.",
+        kind: "screenshot",
+        demoData: true,
+      },
+      {
+        src: "/media/curio-learning-universe/player.png",
+        alt: "Curio course player showing a slide, key takeaways, progress and navigation tabs",
+        caption:
+          "Course player: multi-slide lesson with key takeaways and progress. Content from the seeded community catalogue.",
+        kind: "screenshot",
+        demoData: true,
+      },
+      {
+        src: "/media/curio-learning-universe/studio.png",
+        alt: "Curio Create Studio with the multimodal ingestion form and generation options",
+        caption:
+          "Create Studio: multimodal ingestion (PDF, DOCX, text, images) and grade-adapted generation. Generation runs against OpenRouter when configured.",
+        kind: "screenshot",
+        demoData: true,
+      },
+    ],
+    codeNote:
+      "Captures taken from the running local application against its seeded community catalogue and a generated learner profile. No real learner data: the profile (ID 3SPD7, Grade 5) is created locally on first launch.",
+  },
+
+  {
     slug: "gacos",
     name: "GACOS",
     tier: "featured",

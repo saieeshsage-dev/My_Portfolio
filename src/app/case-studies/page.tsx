@@ -85,10 +85,10 @@ export default function CaseStudiesPage() {
 
       <Reveal className="mt-14 flex flex-wrap items-center justify-between gap-6">
         <p className="max-w-xl font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-paper-faint">
-          Six featured studies. The library also contains six shorter selected projects,
+          Seven featured studies. The library also contains six shorter selected projects,
           each with the same honesty labels.
         </p>
-        <ArrowLink href="/projects">All twelve projects</ArrowLink>
+        <ArrowLink href="/projects">All thirteen projects</ArrowLink>
       </Reveal>
     </div>
   );
